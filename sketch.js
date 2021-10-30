@@ -13,7 +13,6 @@ var score = 0;
 var start, startImg;
 var diamondImg;
 var gameOver, gameOverImg;
-var sky, skyImg;
 var getReady, getReadyImg;
 var ufoImg, ufo2Img;
 var ufoG, ufo2G;
@@ -33,7 +32,6 @@ function preload(){
   startImg = loadImage("start_icon.png");
   diamondImg = loadImage("diamond.png");
   gameOverImg = loadImage("gameOver.png");
-  skyImg = loadImage("background.png");
   getReadyImg = loadImage("getReady.png");
   ufoImg = loadImage("ufo.png");
   ufo2Img = loadImage("ufo2.png");
@@ -79,11 +77,6 @@ function setup(){
   getReady.addImage(getReadyImg);
   getReady.visible = true;
   getReady.scale = 0.7;
-  
-  sky = createSprite(400,400,10,10);
-  sky.addImage(skyImg);
-  sky.scale = 2;
-  sky.visible = false;
   
   space = createSprite(380,777,10,10);
   space.addImage(spaceImg);
@@ -150,7 +143,6 @@ if(mousePressedOver(start)){
     gameOver.visible = false;
     city.visible = true;
     plain.visible = true;
-    sky.visible = false;
     getReady.visible = false;
     start.y = 1000;
 
@@ -211,7 +203,6 @@ if(mousePressedOver(start)){
   
   if(gameState === END){
     gameOver.visible = true;
-    sky.visible = false;
     ufo2G.destroyEach();
     ufoG.destroyEach();
     birdG.destroyEach();
